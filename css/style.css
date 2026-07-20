@@ -1,10 +1,23 @@
 
-:root {
-  --bg: #f6f7fb;
-  --text: #1f2937;
-  --muted: #6b7280;
-}
+/* =========================================================
+   JUST SHOP — Supermercado
+   Paleta: verde (frescura) + naranja (ofertas/energía)
+   ========================================================= */
 
+:root {
+  --green-dark:   #1B5E20;
+  --green:        #2E7D32;
+  --green-light:  #66BB6A;
+  --orange:       #F57C00;
+  --orange-light: #FFB74D;
+  --cream:        #FAF7F0;
+  --text:         #1F2937;
+  --muted:        #6B7280;
+  --white:        #FFFFFF;
+
+  --font-display: 'Poppins', sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, "Segoe UI", sans-serif;
+}
 * {
   box-sizing: border-box;
 }
@@ -18,5 +31,202 @@ body {
   background: var(--bg);
   color: var(--text);
 }
+
+/* ============ NAVBAR (siempre horizontal) ============ */
+.main-navbar {
+  background: var(--green);
+  padding: 0.85rem 0;
+}
+
+.simple-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+}
+
+.brand-logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--white) !important;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.brand-logo span {
+  color: var(--orange-light);
+}
+
+.simple-nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.25rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  scrollbar-width: none;
+}
+
+.simple-nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+.simple-nav-links a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.simple-nav-links a:hover,
+.simple-nav-links a.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+}
+
+.simple-nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+}
+
+.simple-nav-icons a {
+  color: var(--white);
+  font-size: 1rem;
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--orange);
+  color: var(--white);
+  font-size: 0.6rem;
+  line-height: 1;
+  padding: 0.25em 0.4em;
+  border-radius: 999px;
+}
+
+@media (max-width: 576px) {
+  .brand-logo { font-size: 1.05rem; }
+  .simple-nav-links a { font-size: 0.78rem; padding: 0.3rem 0.55rem; }
+  .simple-nav-icons { gap: 0.6rem; }
+  .simple-nav-icons a { font-size: 0.9rem; }
+}
+
+/*Color de fondo*/
+.seccion-destacados{
+  background-color: #FFF3D6;   /* amarillo pastel claro */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* ============ ENCABEZADO PRINCIPAL (h1 + h2) ============ */
+.hero-heading {
+  background: var(--cream);
+}
+
+.hero-title {
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--green-dark);
+  margin-bottom: 0.35rem;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.hero-title span {
+  color: var(--orange);
+}
+
+.hero-subtitle {
+  font-weight: 500;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: var(--muted);
+  margin: 0;
+  text-align: center;
+}
+
+/*Esteliza las imagenes puesta de los productos y sus precios*/
+.fila-productos{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+}
+
+.min-producto{
+  grid-column: 1;
+  justify-self: start;   /* pegada a la izquierda de su columna */
+  text-align: center;
+}
+
+.min-producto img{
+  width: 200px;
+  height: 250px;
+  object-fit: cover; /*Recorta sin deformar*/
+  border-radius: 12px;
+  display: block;
+}
+
+.min-precio{
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+.min-producto2{
+  grid-column: 2;
+  justify-self: center;  /* centrada dentro de su columna */
+  margin: 0;
+  text-align: center;
+}
+
+.min-producto2 img{
+  width: 200px;
+  height: 250px;
+  object-fit: cover; /*Recorta sin deformar*/
+  border-radius: 12px;
+  display: block;
+}
+
+.min-precio2{
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+.min-producto3{
+  width: 200px;
+  text-align: center;
+  grid-column: 3;
+  justify-self: end;   /* pegada a la derecha de su columna */
+  margin: 0;
+}
+
+.min-producto3 img{
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.min-precio3{
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+  
 
 
